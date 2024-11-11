@@ -1,6 +1,9 @@
 import { db } from '@/db';
 import Link from 'next/link';
 
+// From this line this component will be full dynamic.
+// export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   const snippets = await db.snipet.findMany();
 

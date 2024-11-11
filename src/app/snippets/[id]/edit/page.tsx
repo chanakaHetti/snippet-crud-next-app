@@ -3,14 +3,15 @@ import { notFound } from 'next/navigation';
 import { db } from '@/db';
 import SnippetEditForm from '@/components/snippet-edit-form';
 
-interface SnippetEditPageProps {
-  params: {
-    id: string;
-  };
-}
+type Params = Promise<{ id: string }>;
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
-export default async function SnippetEditPage(props: SnippetEditPageProps) {
-  const { id } = await props.params;
+export default async function SnippetEditPage(props: {
+  params: Params;
+  searchParams: SearchParams;
+}) {
+  const params = await props.params;
+  const id = params.id;
 
   await new Promise((r) => setTimeout(r, 2000));
 
