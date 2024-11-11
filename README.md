@@ -29,3 +29,10 @@ npx prisma init --datasource-provider sqlite
 # Migration
 npx prisma migrate dev
 ```
+
+### Build production in locally
+
+```bash
+npm run build
+npm run start
+```
